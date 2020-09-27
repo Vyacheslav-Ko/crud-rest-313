@@ -24,10 +24,8 @@ public class AdminRestController {
 
     @PostMapping(value = "/")
     public ResponseEntity<User> newUser(@RequestBody @Valid User user) {
-        HttpHeaders hh = new HttpHeaders();
         userDetailsServiceAdded.addUser(user);
-        System.out.println(user);
-        return new ResponseEntity<>(user, hh, HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping(value = "/")
