@@ -98,14 +98,14 @@ $(function () {
             headers: {
                 'content-type': 'application/json'
             }
-        }).then(r => refreshTable());
+        }).then(() => refreshTable());
         reloadNewUserTable();
     });
     $('#modalDeleteBtn').on("click", function () {
         fetch(URL_API + $('#idToDeleteUser').val(), {
             method: "DELETE",
             credentials: 'same-origin'
-        }).then(r => refreshTable());
+        }).then(() => refreshTable());
     });
     $('#modalEditBtn').on("click", function () {
         let checked = [];
@@ -128,7 +128,7 @@ $(function () {
             headers: {
                 'content-type': 'application/json'
             }
-        }).then(r => refreshTable());
+        }).then(() => refreshTable());
     });
 });
 refreshTable();
