@@ -66,7 +66,6 @@ function fillDeleteModal(userId) {
             $("#Delete_ROLE_ADMIN").prop('checked', false);
         }
     });
-    refreshTable();
 }
 
 function reloadNewUserTable(){
@@ -99,17 +98,14 @@ $(function () {
             headers: {
                 'content-type': 'application/json'
             }
-        });
+        }).then(r => refreshTable());
         reloadNewUserTable();
-        refreshTable();
     });
     $('#modalDeleteBtn').on("click", function () {
         fetch(URL_API + $('#idToDeleteUser').val(), {
             method: "DELETE",
             credentials: 'same-origin'
         }).then(r => refreshTable());
-        /*refreshTable();
-        reloadNewUserTable();*/
     });
     $('#modalEditBtn').on("click", function () {
         let checked = [];
